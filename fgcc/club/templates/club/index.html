@@ -1,0 +1,37 @@
+{% extends 'club/basic.html' %}
+{% block title%} Friends GymKhana C C{% endblock %}
+{%block css%}
+#heading{text-align:center;}
+#footer{text-align:center;}
+.container-fluid{ background-image-url:('/media/club/images/handshake1.jpg');}
+{%endblock%}
+{% load static %}
+{% block body %}
+<div class="container-fluid" >
+    <h2 id="heading" class="mt-4">Friends GymKhana C C Team Players </h2>
+<div class="container">
+            {%  for i in photos  %}
+                {% if forloop.counter0|divisibleby:3 %} <div class="row text-center" id="myTable"> {%  endif %}
+                  <div class="col-md-4 my-3" >
+                      <div class="card">
+                          <img src="/media/{{i.image}}" alt="" width="auto" height="300">
+                          <div class="card-content">
+                              <br>
+                              <h4>{{i.player_name}}</h4>
+                              <a href="/club/records/{{i.id}}"><button id="qvv{{i.id}}" class="btn btn-danger cart mb-1">
+                              QuickView</button></a>
+                              <br>
+                          </div><!-- card content -->
+                      </div><!-- card -->
+                  </div><!-- col-md-4 -->
+            {%  if forloop.counter|divisibleby:3 or forloop.last %}</div><!-- row closing --><hr>{%  endif %}
+            {%  endfor %}
+
+         </div><!-- container -->
+</div>
+{%endblock%}
+{% block js %}
+<script>
+
+</script>
+{%endblock%}

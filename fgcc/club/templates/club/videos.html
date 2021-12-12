@@ -1,0 +1,97 @@
+{% extends 'club/basic.html' %}
+
+{% block title%}Videos{% endblock %}
+{% block css %}
+
+
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.column img:hover {
+  opacity: 1;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The expanding image container (positioning is needed to position the close button and the text) */
+.container {
+  position: relative;
+  display: none;
+}
+#videos{text-align:center;}
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  middle: 18px;
+  left: 15px;
+  color: black;
+  font-size: 20px;
+}
+
+/* Closable button inside the image */
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: black;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+
+{%endblock%}
+{% load static %}
+{% block body %}
+
+<!-- The grid: four columns -->
+<div class="container-fluid" id="videos">
+
+<div class="row">
+<div class="column">
+    {% for v in videos  %}
+    {% if v.v_image%}
+  <a href="{{v.v_link}}" class="media-1" data-fancybox="gallery">
+      <img src="/media/{{v.v_image}}" alt="{{photoo.title}}"  class="col-md-2.5 center my-2 image-align:center" width="304" height="236">
+  </a>
+
+
+
+
+{%endif%}
+    {%endfor%}
+</div>
+  </div>
+
+<!-- The expanding image container -->
+
+
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script>
+function myFunction(imgs) {
+  // Get the expanded image
+  var expandImg = document.getElementById("expandedImg");
+  // Get the image text
+  var imgText = document.getElementById("imgtext");
+  // Use the same src in the expanded image as the image being clicked on from the grid
+  expandImg.src = imgs.src;
+  // Use the value of the alt attribute of the clickable image as text inside the expanded image
+  imgText.innerHTML = imgs.alt;
+  // Show the container element (hidden with CSS)
+  expandImg.parentElement.style.display = "block";
+}
+</script>
+{% endblock %}

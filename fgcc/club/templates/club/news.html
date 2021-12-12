@@ -1,0 +1,36 @@
+{% extends 'club/basic.html' %}
+
+{% block title%} FGCC News{% endblock %}
+
+{% block body %}
+
+
+<div class="container-fluid my-4">
+  <h2>Friends Gymkhana CC News</h2>
+
+    {% for new in news  %}
+
+  <div class="media border p-3 mt-3">
+    <img src='/media/club/images/logo.png' alt="John Doe" class="mr-3 mt-1" style="width:100px; height:90px;">
+    <div class="media-body">
+        <h4><a href="/club/news_details/{{new.id}}"><button id="qvv{{new.id}}" class="btn btn-danger cart" data-toggle="tooltip" title="Click me to see details!">Friends Gymkhana C C
+        </button></a><small><i class="ml-3"> Posted on {{new.news_date}}</i></small></h4>
+      <p>{{new.news_short_detail}}</p>
+    </div>
+  </div>
+    {%endfor%}
+</div>
+
+
+{%endblock%}
+
+{% block js %}
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+{%endblock%}

@@ -1,0 +1,44 @@
+{% extends 'club/basic.html' %}
+
+{% block title%} {{record.player_name}} - Player Name{% endblock %}
+{% block body %}
+<div class="container-fluid my-4">
+    <div class="row">
+    <div class="col-md-4">
+    <div class="row">
+        <img src="/media/{{record.image}}" width="300px" height="385px">
+    </div>
+
+    </div>
+
+    <div class="col-md-4">
+        Player Name : <h5>{{record.player_name}}</h5><br>
+        Player Category : <h5>{{record.category}}</h5><br>
+        Player Batting Style : <h5>{{record.player_batting_style}}</h5><br>
+        Player Bowling Style : <h5>{{record.player_bowling_style}}</h5><br>
+        Player Age : <h5>{{record.player_age}}</h5><br>
+
+
+
+    </div>
+        <div class="col-md-4">
+            Player Category : <h5>{{record.category}}</h5><br>
+            Player Description : <h5>{{record.player_desc}}</h5>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+{% endblock %}
+
+
+
+
+{% block js %}
+<script>
+</script>
+{% endblock %}

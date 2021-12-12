@@ -1,0 +1,36 @@
+{% extends 'club/basic.html' %}
+
+{% block title%} About FGCC{% endblock %}
+{% load static %}
+{% block body %}
+<div class="container-fluid" >
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+        <th scope="col">desc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>{{example3.name}}</td>
+      <td>{{example2.email}}</td>
+      <td>{{example2.phone}}</td>
+        <td>{{example2.desc}}</td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+
+{%endblock%}
+
+{% block js %}
+<script>
+
+</script>
+{%endblock%}

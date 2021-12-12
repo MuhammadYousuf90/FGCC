@@ -1,0 +1,72 @@
+{% extends 'club/basic.html' %}
+
+{% block title%}match{%endblock%}
+{% block css %}
+.card-body {
+  background-color:#922C46;
+}
+
+h5 {
+  color: black;
+}
+#heading{text-align:center;}
+
+.between{text-align:center;}
+#between{color:white;}
+#time{text-align:top-right}
+#date{text-align:right-bottom}
+#footer{text-align:center;}
+{%endblock%}
+
+{% block body %}
+<div class="container-fluid">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Previous Matches</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2 id="heading" class="mt-3"> Previous Matches</h2>
+
+ {% for m in matches  %}
+    {% if m.n_match_team1%}
+
+  <div class="card bg-info my-4 text-white">
+    <div class="card-body" style="">
+        <div class="between"><h5>Match Between</h5> <h5 id="between">{{m.n_match_team1}} VS {{m.n_match_team2}}</h5></div>
+        <div id="time"><h5>Match Time : {{m.match_date}}</h5></div>
+
+        <h5> Match Center :     {{m.n_match_location}}</h5><a href="/club/nxt_matchs/{{m.id}}">
+        <button id="qvv{{m.id}}" class="btn btn-danger cart">Score Card</button></a>
+    </div>
+  </div>
+    {%else%}
+    <h2>No Previous Matches Available</h2>
+{%endif%}
+
+
+    {%endfor%}
+</div>
+
+</body>
+</html>
+
+
+</div>
+
+
+
+
+{% endblock %}
+{%block js%}
+<script>
+</script>
+{% endblock %}
